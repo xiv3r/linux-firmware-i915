@@ -3,7 +3,11 @@
 
 - [Official i915 Firmware](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/i915)
 
-## Install the latest i915 firmware
+## Auto Install
+```sh
+curl https://raw.githubusercontent.com/xiv3r/linux-firmware-i915/refs/heads/main/install.sh | sudo sh
+```
+## Install
 
 ```sh
 sudo rm -rf /lib/firmware/i915
