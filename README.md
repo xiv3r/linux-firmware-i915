@@ -1,11 +1,22 @@
 # linux-firmware-i915
 ### fixed initamfs missing i915 linux firmware from /lib/firmware/i915
 
-- Go to [Downloads](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/i915) and
-copy the link of the missing firmware.
+- [Official i915 Firmware](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/i915)
 
-- Open the terminal and `cd /lib/firmware/i915`
+## Install the latest i915 firmware
 
-- Example:`wget https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/i915/mtl_gsc_1.bin`
+```sh
+sudo rm -rf /lib/firmware/i915/*
+```
+```sh
+sudo mkdir -p /lib/firmware/i915
+```
+```sh
+wget -r -l 1 -A "*.bin" -e robots=off -U Mozilla https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/i915/
+```
 
-- Next Update the initramfs `sudo update-initramfs -u -k all`
+## Update the initramfs
+> 
+```sh
+sudo update-initramfs -u -k all`
+```
