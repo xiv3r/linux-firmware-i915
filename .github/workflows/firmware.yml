@@ -19,7 +19,7 @@ jobs:
       run: |
         mkdir downloads
         cd downloads
-        git clone https://git.kernel.org/pub/scm/linux-kernel/git/firmware/linux-firmware.git
+        git clone https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git
         zip -r firmware.zip linux-firmware/i915/
         
     - name: Determine release tag
@@ -76,6 +76,6 @@ jobs:
       with:
         tag_name: ${{ steps.get_tag.outputs.tag_name }}
         files: |
-            downloads/*.zip
+             *.zip
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
