@@ -3,7 +3,9 @@ name: firmware i915
 on:
   workflow_dispatch:
   release:
-    types: [published]  
+    types: [published]
+  schedule:
+    - cron: '0 5 * * 0'
     
 jobs:
   download-and-release:
