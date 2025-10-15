@@ -19,11 +19,11 @@ jobs:
       run: |
         sudo apt update 
         sudo apt install zip wget -y
-        mkdir -p $(pwd)/downloads/firmware
-        cd $(pw)/downloads
+        mkdir -p downloads 
+        mkdir -p downloads/firmware
         wget -r -l 1 -A "*.bin" --no-parent -e robots=off -U Mozilla https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/i915/
-        sudo mv git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/i915 $(pwd)/downloads/firmware
-        zip -r firmware.zip firmware/
+        sudo mv git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/i915 downloads/firmware
+        zip -r firmware.zip downloads/firmware/
         
     - name: Determine release tag
       id: get_tag
