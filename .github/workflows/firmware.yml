@@ -22,7 +22,7 @@ jobs:
         mkdir downloads
         cd downloads
         git clone https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git
-        zip -r firmware.zip linux-firmware/i915
+        zip -r firmware.zip linux-firmware/i915/
         
     - name: Determine release tag
       id: get_tag
