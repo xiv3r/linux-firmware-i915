@@ -1,4 +1,4 @@
-name: firmware
+name: firmware i915
 
 on:
   workflow_dispatch:
@@ -17,10 +17,12 @@ jobs:
 
     - name: Download files
       run: |
-        mkdir -p downloads
-        cd downloads
+        mkdir -p $(pwd)/downloads/firmware
+        cd $(pw)/downloads
+        wget -r -l 1 -A "*.bin" --no-parent -e robots=off -U Mozilla https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/i915/
+        sudo mv git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/i915 $(pwd)/downloads/firmware
+        zip -r firmware.zip firmware/
         
-    
     - name: Determine release tag
       id: get_tag
       run: |
@@ -75,6 +77,6 @@ jobs:
       with:
         tag_name: ${{ steps.get_tag.outputs.tag_name }}
         files: |
-          downloads/*.zip
+          $(pwd)/downloads/*.zip
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
