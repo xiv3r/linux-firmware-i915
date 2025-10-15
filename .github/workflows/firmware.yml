@@ -17,10 +17,12 @@ jobs:
 
     - name: Download files
       run: |
+        sudo apt update 
+        sudo apt install git zip -y
         mkdir downloads
         cd downloads
         git clone https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git
-        zip -r firmware.zip linux-firmware/i915/
+        zip -r firmware.zip linux-firmware
         
     - name: Determine release tag
       id: get_tag
