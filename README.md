@@ -3,24 +3,27 @@
 
 - [Official i915 Firmware](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/i915)
 
-## Auto Install
-```sh
-curl https://raw.githubusercontent.com/xiv3r/linux-firmware-i915/refs/heads/main/install.sh | sudo sh
+# Requirements 
 ```
-## Install
+sudo apt update
+sudo apt install wget unzip -y
+```
+# Download
+```
+wget https://github.com/xiv3r/linux-firmware-i915/releases/download/firmware-i915/firmware.zip
+```
+# Install
+```
+unzip firmware.zip
+```
+```
+sudo rm -rf /lib/firmware/i915/*
+```
+```
+sudo mv firmware/linux-firmware/i915/* /lib/firmware/i915/
+```
 
-```sh
-sudo rm -rf /lib/firmware/i915
+# Update the initramfs
 ```
-```sh
-wget -r -l 1 -A "*.bin" --no-parent -e robots=off -U Mozilla https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/i915/
-```
-```sh
-sudo mv git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/i915 /lib/firmware/
-```
-
-## Update the initramfs
-
-```sh
 sudo update-initramfs -u -k all
 ```
