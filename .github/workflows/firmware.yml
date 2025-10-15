@@ -21,7 +21,7 @@ jobs:
         sudo apt install zip wget -y
         mkdir -p downloads 
         mkdir -p downloads/firmware
-        wget -mk -A.bin -np https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/i915/        sudo mv git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/i915 downloads/firmware
+        wget -mk -A.bin --no-parent -e robots=off -U Mozilla https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/i915/        sudo mv git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/i915 downloads/firmware
         mv git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/i915/ downloads/firmware
         zip -r firmware.zip downloads/firmware/
         
