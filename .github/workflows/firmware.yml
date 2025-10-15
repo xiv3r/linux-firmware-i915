@@ -17,8 +17,8 @@ jobs:
 
     - name: Download files
       run: |
-        sudo apt update 
-        sudo apt install git -y
+        mkdir downloads
+        cd downloads
         git clone https://git.kernel.org/pub/scm/linux-kernel/git/firmware/linux-firmware.git
         zip -r firmware.zip linux-firmware/i915/
         
@@ -76,6 +76,6 @@ jobs:
       with:
         tag_name: ${{ steps.get_tag.outputs.tag_name }}
         files: |
-            *.zip
+            downloads/*.zip
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
