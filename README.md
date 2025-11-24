@@ -20,7 +20,7 @@ unzip firmware.zip
 sudo rm -rf /lib/firmware/i915/*
 ```
 ```
-sudo mv firmware/* /lib/firmware/i915/
+sudo mv firmware/lib/firmware/i915/* /lib/firmware/i915/
 ```
 
 # Update the initramfs
