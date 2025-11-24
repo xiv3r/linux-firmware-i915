@@ -1,7 +1,17 @@
 # linux-firmware-i915
-### fixed initamfs missing i915 linux firmware from /lib/firmware/i915
+> fixed initamfs missing i915 linux firmware from /lib/firmware/i915
 
 - [Official i915 Firmware](https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/plain/i915)
+
+# Auto Install 
+```
+sudo apt update && sudo apt install wget unzip -y && wget -qO- https://raw.githubusercontent.com/xiv3r/linux-firmware-i915/refs/heads/main/auto.sh | sudo bash
+```
+
+<details><summary>
+
+# Manual Install 
+</summary>
 
 # Requirements 
 ```
@@ -27,3 +37,4 @@ sudo mv linux-firmware/i915/* /lib/firmware/i915/
 ```
 sudo update-initramfs -u -k all
 ```
+</details>
