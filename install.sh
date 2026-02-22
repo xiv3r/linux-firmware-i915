@@ -5,6 +5,6 @@ wget -O firmware.zip https://github.com/xiv3r/linux-firmware-i915/releases/downl
 
 unzip firmware.zip
 
-rm /lib/firmware/i915/*
+rm -rf /lib/firmware/i915/*
 
 mv linux-firmware/i915/* /lib/firmware/i915/
